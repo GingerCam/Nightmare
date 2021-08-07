@@ -20,6 +20,8 @@
 At the moment Nightmare only supports Wifislax, Kali, Parrot, Backbox, BlackArch, Cyborg, Ubuntu, Mint, Debian, SuSE, CentOS, Gentoo, Fedora, Red Hat, Arch, OpenMandriva, Pentoo and Manjaro.
 
 git clone https://github.com/GingerCam/Nightmare.git
+
 cd Nightmare
+
 sudo pip3 install -r requirements.txt
 
