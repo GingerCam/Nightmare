@@ -21,5 +21,5 @@ At the moment Nightmare only supports Wifislax, Kali, Parrot, Backbox, BlackArch
 
 git clone https://github.com/GingerCam/Nightmare.git
 cd Nightmare
-sudo python3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
 
