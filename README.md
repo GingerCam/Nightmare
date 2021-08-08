@@ -3,6 +3,8 @@
  
  Written by GingerCam
 
+ ![Nightmare-icon](https://github.com/GingerCam/Nightmare/blob/main/pictures/Nightmare.png)
+
  # Features (in the future)
 -Rogue access point with dns spoofing, Captive Portal(done), sniffing and spoofing
 
