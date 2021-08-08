@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -d /usr/share/Nightmare ]]; then
+    cd /usr/share/Nightmare
+    python3 Nightmare.py    
+else
+    echo "/usr/share/Nightmare doesn't exist.\nPlease run the setup script again"
+fi
