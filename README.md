@@ -1,15 +1,16 @@
 # Nightmare
  Cyber securiy tool written in python3
+ 
+ Written by GingerCam
 
  # Features (in the future)
--Rogue access point with dns spoofing, Captive Portal, sniffing and spoofing
+-Rogue access point with dns spoofing, Captive Portal(done), sniffing and spoofing
 
 -Hash cracking with John the ripper and hashcat
 
 -Metasploit Framework Shortcut
 
 -Brute forcing serivces with hydra
-
 
 -Pass a .ghost file with config to Nightmare, like wifipumpkin3 
 
@@ -24,4 +25,3 @@ git clone https://github.com/GingerCam/Nightmare.git
 cd Nightmare
 
 sudo pip3 install -r requirements.txt
-
