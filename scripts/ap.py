@@ -1,36 +1,15 @@
 #!/usr/bin/env python3
 
 import termcolor
-import scapy
 import os
 import sys
-import time
 from tqdm import tqdm
 
 colour = "green"
 promt_colour="green"
-status="idle"
 
-channel_range = range(1, 15)
 config_files = {'/tmp/hostapd.conf', '/tmp/dnsmasq.conf'}
 tmpdir = "/tmp/"
-version = "v0.1"
-date_release = "6/7/2021"
-
-
-def intro():
-    os.system(command="clear")
-    os.system(command="figlet Nightmare")
-    termcolor.cprint(
-        "Written by GingerCam. https://github.com/GingerCam/", "green")
-    #termcolor.cprint("NightMare written by GingerCam", colour)
-    time.sleep(0.1)
-    termcolor.cprint(version, "red")
-    time.sleep(0.1)
-    termcolor.cprint(date_release, "red")
-    termcolor.cprint("mode=access point", colour)
-    time.sleep(0.1)
-    print('')
 
 def clear_temp():
     try:

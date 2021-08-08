@@ -2,7 +2,6 @@
 
 import os
 import sys
-import time
 import termcolor
 colour = "green"
 promt_colour = "green"
