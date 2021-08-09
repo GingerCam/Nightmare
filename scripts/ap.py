@@ -21,8 +21,8 @@ def clear_temp():
 
 def help():
     termcolor.cprint("captive portal -- captive portal attack for evil twin and/or phishing", colour)
-    #termcolor.cprint("http sniffing", colour)
-
+    termcolor.cprint("http sniffer -- sniffs http connections from ap", colour)
+    termcolor.cprint("rogue ap -- creates a base rogue access point", colour)
 
 def main():
     os.system("cd scripts/")
@@ -46,6 +46,10 @@ def main():
             help()
         elif command == ['captive', 'portal']:
             os.system("sudo python3 scripts/portal/portal.py")
+        elif command == ['rogue', 'ap']:
+            os.system("sudo python3 scripts/rogue/rogue.py")
+        elif command == ['http', 'sniffer']:
+            os.system("sudo python3 scripts/http_sniff/sniffer.py")
         else:
             termcolor.cprint("Command Not Found", "red")
 

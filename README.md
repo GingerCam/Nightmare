@@ -6,7 +6,7 @@
  ![Nightmare-icon](https://github.com/GingerCam/Nightmare/blob/main/pictures/Nightmare.png)
 
  # Features (in the future)
--Rogue access point with dns spoofing, Captive Portal(done), sniffing and spoofing
+-Rogue access point(done) with dns spoofing, Captive Portal(done), sniffing(done) and spoofing
 
 -Hash cracking with John the ripper and hashcat
 

@@ -54,40 +54,6 @@ if not os.getuid() == 0:
     print("Nightmare needs to run with root permissions!")
     sys.exit()
 
-# create parser
-#parser = argparse.ArgumentParser()
-
-# add arguments
-#parser.add_argument(
-    "-i",
-    "--iface",
-    dest="interface",
-    help="Wireless interface to run the access point",
-    default="wlan0",
-#)
-#parser.add_argument(
-    "-c",
-    "--channel",
-    dest="channel",
-    help="Wireless channel to run the access point (1-14)",
-    default="11",
-#)
-#parser.add_argument(
-    "-s",
-    "--ssid",
-    dest="ssid",
-    help="The ssid to run the access point",
-    default="Nightmare",
-#)
-#parser.add_argument(
-    "-b",
-    "--bssid",
-    dest="bssid",
-    help="The bssid to run the access point",
-    default="BC:F6:85:03:36:5B",
-#)
-
-#args = parser.parse_args()
 
 def intro():
     os.system(command="clear")
