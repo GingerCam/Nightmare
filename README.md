@@ -5,8 +5,11 @@
 
  ![Nightmare-icon](https://github.com/GingerCam/Nightmare/blob/main/pictures/Nightmare.png)
 
+ # Features
+
+ -Rogue access point, Captive Portal, sniffing and spoofing
+
  # Features (in the future)
--Rogue access point(done) with dns spoofing, Captive Portal(done), sniffing(done) and spoofing
 
 -Hash cracking with John the ripper and hashcat
 
@@ -15,6 +18,8 @@
 -Brute forcing serivces with hydra
 
 -Pass a .ghost file with config to Nightmare, like wifipumpkin3 
+
+-Man In The middle attacks
 
 (note: this is a major work in progress)
 
