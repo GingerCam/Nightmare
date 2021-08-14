@@ -5,15 +5,17 @@ if [[ $1 == "install" ]]; then
     pip3 install -r requirements.txt
     if [[ $2 == "global" ]]; then
         mkdir /usr/share/Nightmare
-        cp -r /usr/share/Nightmare
-        cp /usr/share/Nightmare/scripts/nightmare /usr/bin/
+        cp -r * /usr/share/Nightmare
+        cp /usr/share/Nightmare/sysfiles/nightmare /usr/bin/
         chmod +x /usr/bin/nightmare
+        cp /usr/share/Nightmare/sysfiles/Nightmare.desktop /usr/share/applications/
     fi
 fi
 
 if [[ $1 == "uninstall" ]]; then
     if [[ -d /usr/share/Nightmare ]]; then
         rm -r /usr/share/Nightmare
-        rm /usr/bin/Nightmare        
+        rm /usr/bin/nightmare
+        rm /usr/share/applications/Nightmare.desktop        
     fi
 fi

@@ -124,7 +124,7 @@ def clear_temp():
         for file in tmp_files:
             os.remove(tmpdir + file)
     except:
-        print("No files to be removed")
+        print("No temp files to be removed")
 
 def help():
     termcolor.cprint("sys (command) -- executes system commands", colour)
@@ -134,13 +134,6 @@ def help():
 
 #cli
 def cli():
-    # try:
-    #    command = input(termcolor.colored(
-    #        "ghost@Nightmare:~/" + mode + "$ ", color)).split()
-
-    # except:
-    #    command = input(termcolor.colored(
-    #        "ghost@Nightmare:~$ ", color)).split()
     while True:
         command = input(termcolor.colored(
             "ghost@Nightmare:~$ ", promt_colour)).split()
@@ -167,10 +160,15 @@ def cli():
 
 
 def main():
-    intro()
-    os_detect()
-    package_check()
-    cli()
+    try:
+        intro()
+        os_detect()
+        package_check()
+        cli()
+    except KeyboardInterrupt:
+        termcolor.cprint("\nCtrl + C pressed............Quitting", "red")
+        clear_temp()
+        sys.exit()
 
 
 if __name__ == '__main__':

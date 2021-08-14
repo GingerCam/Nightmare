@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Nightmare
+Comment=All in one python cyber security tool
+Icon=/usr/share/Nightmare/pictures/Nightmare_1.png
+Exec=echo 1
+StartupNotify=true
+terminal=true
