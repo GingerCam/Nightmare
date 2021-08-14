@@ -50,6 +50,9 @@ def main():
             os.system("sudo python3 scripts/rogue/rogue.py")
         elif command == ['http', 'sniffer']:
             os.system("sudo python3 scripts/http_sniff/sniffer.py")
+        elif command[0] == ['sys']:
+            command_temp=' '.join(command[1:])
+            os.system(command_temp)
         else:
             termcolor.cprint("Command Not Found", "red")
 

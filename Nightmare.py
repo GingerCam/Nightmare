@@ -10,7 +10,7 @@ import time
 
 # NightMare vars
 version = "v0.1"
-date_release = "5/7/2021"
+date_release = "14/8/2021"
 colour = "green"
 promt_colour="green"
 standardhandshake_filename = "handshake-01.cap"

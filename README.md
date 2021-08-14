@@ -1,6 +1,9 @@
 # Nightmare
  Cyber securiy tool written in python3
- 
+![GitHub language count](https://img.shields.io/github/languages/count/GingerCam/Nightmare)
+![GitHub all releases](https://img.shields.io/github/downloads/GingerCam/Nightmare/total)
+![GitHub last commit](https://img.shields.io/github/last-commit/GingerCam/Nightmare)
+
  Written by GingerCam
 
  ![Nightmare-icon](https://github.com/GingerCam/Nightmare/blob/main/pictures/Nightmare.png)
@@ -20,6 +23,10 @@
 -Pass a .ghost file with config to Nightmare, like wifipumpkin3 
 
 -Man In The middle attacks
+
+-Reverse engineering
+
+-Digital Forensics
 
 (note: this is a major work in progress)
 
