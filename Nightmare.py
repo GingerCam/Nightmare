@@ -7,17 +7,13 @@ import termcolor
 import subprocess
 from tqdm import tqdm
 import time
+import logging
+from config.Nightmare.settings import colour, promt_colour, version, date_release, abs_file
+from scripts.ap import ap_main
 
 # NightMare vars
-version = "v0.1"
-date_release = "14/8/2021"
-colour = "green"
-promt_colour="green"
-standardhandshake_filename = "handshake-01.cap"
-standardpmkid_filename = "pmkid_hash.txt"
-standardpmkidcap_filename = "pmkid.cap"
-timeout_capture_handshake = "20"
-timeout_capture_pmkid = "25"
+#colour = "green"
+#promt_colour="green"
 tmpdir = "/tmp/"
 osversionfile_dir = "/etc/"
 # plugins_dir="plugins/"
@@ -31,7 +27,13 @@ debian_package = ['apt', 'dpkg']
 debian_based = ['kali', 'Parrot', 'Ubuntu', 'Debian', 'Mint']
 arch_based = ['Arch', 'Manjaro']
 
+logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
+def abs_file():
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
+abs_file()
 # Distros vars
 known_compatible_distros = (
     "Kali Parrot Ubuntu Mint Debian ").split()
@@ -131,6 +133,7 @@ def help():
     termcolor.cprint("ap -- puts Nightmare into access point mode", colour)
     termcolor.cprint("netscan -- scans a selected subnet for avaliable hosts", colour)
     termcolor.cprint("clear -- clears the screen", colour)
+    #termcolor.cprint("web -- puts Nightmare into web mode", colour)
 
 #cli
 def cli():
@@ -150,7 +153,8 @@ def cli():
             command_temp=' '.join(command[1:])
             os.system(command_temp)
         elif command == ['ap']:
-            os.system("sudo python3 scripts/ap.py")
+            ap_main()
+            #os.system("sudo python3 scripts/ap.py")
         elif command == ['netscan']:
             os.system("sudo python3 scripts/network_scanner.py")
         elif command == ['help']:

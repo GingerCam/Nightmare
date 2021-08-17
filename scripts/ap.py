@@ -3,10 +3,12 @@
 import termcolor
 import os
 import sys
-from tqdm import tqdm
+from config.Nightmare.settings import colour, promt_colour
 
-colour = "green"
-promt_colour="green"
+def abs_file():
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
 
 config_files = {'/tmp/hostapd.conf', '/tmp/dnsmasq.conf'}
 tmpdir = "/tmp/"
@@ -24,12 +26,13 @@ def help():
     termcolor.cprint("http sniffer -- sniffs http connections from ap", colour)
     termcolor.cprint("rogue ap -- creates a base rogue access point", colour)
 
-def main():
-    os.system("cd scripts/")
+def ap_main():
+    #os.system("cd scripts/")
     #intro()
     promt=termcolor.colored("ghost@Nightmare:~", promt_colour)
     directory=termcolor.colored("/WiFi/", "blue")
-    not_root=termcolor.colored("$ ", colour)
+    not_root=termcolor.colored("$ ", promt_colour)
+    abs_file()
     all_promt=promt + directory + not_root
     while True:
         command = input(all_promt).split()
@@ -45,11 +48,11 @@ def main():
         elif command == ['help']:
             help()
         elif command == ['captive', 'portal']:
-            os.system("sudo python3 scripts/portal/portal.py")
+            os.system("sudo python3 portal/portal.py")
         elif command == ['rogue', 'ap']:
-            os.system("sudo python3 scripts/rogue/rogue.py")
+            os.system("sudo python3 rogue/rogue.py")
         elif command == ['http', 'sniffer']:
-            os.system("sudo python3 scripts/http_sniff/sniffer.py")
+            os.system("sudo python3 http_sniff/sniffer.py")
         elif command[0] == ['sys']:
             command_temp=' '.join(command[1:])
             os.system(command_temp)

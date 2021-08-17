@@ -36,7 +36,7 @@ def main():
             if len(command) == 4:
                 online_interface = command[3]
         elif command == ['run']:
-            os.system("cd scripts/rogue && sudo bash Nightmare_ap " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel)
+            os.system("cd rogue && sudo bash Nightmare_ap " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel)
         elif command == ['exit'] or command == ['back']:
             sys.exit()
         elif command[0:2] == ['set', 'ssid']:

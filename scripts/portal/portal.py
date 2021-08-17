@@ -36,7 +36,7 @@ def main():
             if len(command) == 4:
                 online_interface = command[3]
         elif command == ['run']:
-            os.system("cd scripts/portal && sudo bash Nightmare_ap captive " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel + ' ' + "1")
+            os.system("cd portal && sudo bash Nightmare_ap captive " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel + ' ' + "1")
         elif command == ['exit'] or command == ['back']:
             sys.exit()
         elif command[0:2] == ['set', 'ssid']:

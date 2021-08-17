@@ -1,7 +1,9 @@
 # Nightmare
  Cyber securiy tool written in python3
+
 ![GitHub language count](https://img.shields.io/github/languages/count/GingerCam/Nightmare)
-![GitHub all releases](https://img.shields.io/github/downloads/GingerCam/Nightmare/total)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/GingerCam/Nightmare)
+![GitHub repo size](https://img.shields.io/github/repo-size/GingerCam/Nightmare)
 ![GitHub last commit](https://img.shields.io/github/last-commit/GingerCam/Nightmare)
 
  Written by GingerCam
@@ -38,4 +40,16 @@ git clone https://github.com/GingerCam/Nightmare.git
 
 cd Nightmare
 
-sudo pip3 install -r requirements.txt
+chmod +x setup.sh
+
+sudo ./setup.sh install
+
+To install globally:
+
+sudo ./setup.sh install global
+
+# Uninstall
+
+sudo ./setup.sh uninstall
+
+note: the python modules will still be installed
