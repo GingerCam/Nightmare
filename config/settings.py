@@ -14,8 +14,10 @@ config_file = "settings.txt"
 config = configparser.ConfigParser()
 config.read_file(open(config_file))
 
+class config_var:
+    colour = config.get('colours', 'colour')
+    promt_colour = config.get('colours', 'promt_colour')
+    version = config.get('version', 'version')
+    date_release = config.get('version', 'date_release')
+    run_intro = config.get('Nightmare', 'intro')
 
-colour = config.get('colours', 'colour')
-promt_colour = config.get('colours', 'promt_colour')
-version = config.get('version', 'version')
-date_release = config.get('version', 'date_release')

@@ -15,7 +15,7 @@ def help():
     termcolor.cprint("help -- shows this message", "yellow")
     termcolor.cprint("back or exit -- exits the captive portal module", "yellow")
 
-def main():
+def rogue_main():
     interface = "wlan0"
     online_interface = "eth0"
     ssid = "Nightmare"
@@ -36,9 +36,10 @@ def main():
             if len(command) == 4:
                 online_interface = command[3]
         elif command == ['run']:
-            os.system("cd http_sniff && sudo bash Nightmare_ap sniff " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel)
+            os.system("cd nightmare/modules/wifi/rogue && sudo bash Nightmare_ap " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel)
         elif command == ['exit'] or command == ['back']:
-            sys.exit()
+            # sys.exit()
+            break
         elif command[0:2] == ['set', 'ssid']:
             if len(command) == 3:
                 ssid = command[2]
@@ -59,11 +60,10 @@ def main():
         else:
             termcolor.cprint("Command Not Found", "red")
 
-'''
+
 if __name__ == '__main__':
     try:
-        main()
+        rogue_main()
     except KeyboardInterrupt:
         termcolor.cprint("\nCtrl + C pressed............Quitting", "red")
         sys.exit()
-'''

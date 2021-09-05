@@ -4,3 +4,5 @@ date_release =
 [colours]
 colour = yellow
 promt_colour = green
+[Nightmare]
+intro = True

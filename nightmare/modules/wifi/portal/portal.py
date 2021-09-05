@@ -13,15 +13,15 @@ def help():
     termcolor.cprint("set channel --  sets the channel for the ap (1-14)", "yellow")
     termcolor.cprint("run -- runs the captive portal module with the config", "yellow")
     termcolor.cprint("help -- shows this message", "yellow")
-    termcolor.cprint("back or exit -- exits the captive portal module", "yellow")
+    termcolor.cprint("back or exit -- exits the captive portal module")
 
-def main():
+def portal_main():
     interface = "wlan0"
     online_interface = "eth0"
     ssid = "Nightmare"
     channel = "1"
     promt = termcolor.colored("ghost@Nightmare:~", promt_colour)
-    directory = termcolor.colored("/WiFi/rogue_ap/", "blue")
+    directory = termcolor.colored("/WiFi/captive_portal/", "blue")
     not_root = termcolor.colored("$ ", colour)
     all_promt = promt + directory + not_root
     while True:
@@ -36,9 +36,10 @@ def main():
             if len(command) == 4:
                 online_interface = command[3]
         elif command == ['run']:
-            os.system("cd http_sniff && sudo bash Nightmare_ap sniff " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel)
+            os.system("cd nightmare/modules/wifi/portal && sudo bash Nightmare_ap captive " + interface + ' ' + online_interface + ' ' + ssid + ' ' + channel + ' ' + "1")
         elif command == ['exit'] or command == ['back']:
-            sys.exit()
+            # sys.exit()
+            break
         elif command[0:2] == ['set', 'ssid']:
             if len(command) == 3:
                 ssid = command[2]
@@ -59,11 +60,10 @@ def main():
         else:
             termcolor.cprint("Command Not Found", "red")
 
-'''
+
 if __name__ == '__main__':
     try:
-        main()
+        portal_main()
     except KeyboardInterrupt:
         termcolor.cprint("\nCtrl + C pressed............Quitting", "red")
         sys.exit()
-'''

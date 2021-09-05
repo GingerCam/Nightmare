@@ -7,16 +7,18 @@ import termcolor
 import subprocess
 from tqdm import tqdm
 import time
-import logging
-from config.Nightmare.settings import colour, promt_colour, version, date_release, abs_file
-from scripts.ap import ap_main
+from nightmare.core.config.settings import *
+from nightmare.core.controllers.ap import ap_main
+from nightmare.core.controllers.hash import hash_main
+from nightmare.core.controllers.network import net_main
+current_dir = os.getcwd()
 
 # NightMare vars
 #colour = "green"
 #promt_colour="green"
 tmpdir = "/tmp/"
 osversionfile_dir = "/etc/"
-# plugins_dir="plugins/"
+plugins_dir="plugins/"
 minimum_bash_version_required = "4.2"
 standard_resolution = "1024x768"
 curl_404_error = "404: Not Found"
@@ -27,13 +29,12 @@ debian_package = ['apt', 'dpkg']
 debian_based = ['kali', 'Parrot', 'Ubuntu', 'Debian', 'Mint']
 arch_based = ['Arch', 'Manjaro']
 
-logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+
 
 def abs_file():
     abspath = os.path.abspath(__file__)
     dname = os.path.dirname(abspath)
     os.chdir(dname)
-abs_file()
 # Distros vars
 known_compatible_distros = (
     "Kali Parrot Ubuntu Mint Debian ").split()
@@ -60,9 +61,10 @@ if not os.getuid() == 0:
 def intro():
     os.system(command="clear")
     print('')
-    for i in tqdm (range (25), desc="Loading Your Nightmares..."):
-        pass
-        time.sleep(0.1)
+    if run_intro == "True":
+        for i in tqdm (range (25), desc="Loading Your Nightmares..."):
+            # pass
+            time.sleep(0.1)
     os.system(command="clear")
     os.system(command="figlet Nightmare")
     termcolor.cprint("Written by GingerCam. https://github.com/GingerCam/", "green")
@@ -116,7 +118,7 @@ def package_check():
         termcolor.cprint("Some packages are not installed!", "red")
         termcolor.cprint("Would you like to install these packages?", "red")
         option=input("Y/n: ")
-        if option == "y" or option == "Y":
+        if option == "y" or option == "Y" or option == '':
             os.system(command="apt install " + not_installed)
 
 
@@ -133,8 +135,10 @@ def help():
     termcolor.cprint("ap -- puts Nightmare into access point mode", colour)
     termcolor.cprint("netscan -- scans a selected subnet for avaliable hosts", colour)
     termcolor.cprint("clear -- clears the screen", colour)
-    #termcolor.cprint("web -- puts Nightmare into web mode", colour)
+    termcolor.cprint("network -- pute Nightmare into network mode", colour)
+    # termcolor.cprint("web -- puts Nightmare into web mode", colour)
 
+         
 #cli
 def cli():
     while True:
@@ -152,11 +156,15 @@ def cli():
         elif command[0] == "sys":
             command_temp=' '.join(command[1:])
             os.system(command_temp)
+        elif command == ['network']:
+            net_main()
         elif command == ['ap']:
             ap_main()
             #os.system("sudo python3 scripts/ap.py")
+        elif command == ['hash']:
+            hash_main()
         elif command == ['netscan']:
-            os.system("sudo python3 scripts/network_scanner.py")
+            os.system("sudo python3 nightmare/modules/network/network_scanner.py")
         elif command == ['help']:
             help()
         else:

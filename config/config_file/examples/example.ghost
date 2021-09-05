@@ -1,0 +1,9 @@
+[config]
+interactive=true
+ap=true
+web=false
+
+[ap_config]
+interface = wlan0
+
+[web_config]

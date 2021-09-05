@@ -3,7 +3,10 @@
 import termcolor
 import os
 import sys
-from config.Nightmare.settings import config_var
+from nightmare.core.config.settings import *
+from nightmare.modules.wifi.http_sniff.sniffer import sniffer
+from nightmare.modules.wifi.portal.portal import portal_main
+from nightmare.modules.wifi.rogue.rogue import rogue_main
 
 def abs_file():
     abspath = os.path.abspath(__file__)
@@ -32,7 +35,7 @@ def ap_main():
     promt=termcolor.colored("ghost@Nightmare:~", promt_colour)
     directory=termcolor.colored("/WiFi/", "blue")
     not_root=termcolor.colored("$ ", promt_colour)
-    abs_file()
+    #abs_file()
     all_promt=promt + directory + not_root
     while True:
         command = input(all_promt).split()
@@ -44,25 +47,30 @@ def ap_main():
             os.system("clear")
         elif command == ['exit'] or command == ['back']:
             clear_temp()
-            sys.exit()
+            break
+            # sys.exit()
         elif command == ['help']:
             help()
         elif command == ['captive', 'portal']:
-            os.system("sudo python3 portal/portal.py")
+            portal_main()
+            abs_file()
+            # os.system("sudo python3 portal/portal.py")
         elif command == ['rogue', 'ap']:
-            os.system("sudo python3 rogue/rogue.py")
+            rogue_main()
+            abs_file()
+            # os.system("sudo python3 rogue/rogue.py")
         elif command == ['http', 'sniffer']:
-            os.system("sudo python3 http_sniff/sniffer.py")
+            sniffer()
+            abs_file()
+            #os.system("sudo python3 http_sniff/sniffer.py")
         elif command[0] == ['sys']:
             command_temp=' '.join(command[1:])
             os.system(command_temp)
         else:
             termcolor.cprint("Command Not Found", "red")
 
-
 if __name__ == "__main__":
     try:
-        main()
+        ap_main()
     except KeyboardInterrupt:
         termcolor.cprint("\nCtrl + C pressed............Quitting", "red")
-        sys.exit()
