@@ -1,6 +1,6 @@
 [version]
 version = v0.2
-date_release = 
+date_release = 10/9/21
 [colours]
 colour = yellow
 promt_colour = green
