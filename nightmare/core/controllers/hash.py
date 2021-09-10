@@ -5,6 +5,7 @@ import os
 import sys
 import termcolor
 from nightmare.modules.hash.md5_crack import md5_main
+
 def help():
     termcolor.cprint("md5 -- cracks md5 with wordlist", colour)
 
