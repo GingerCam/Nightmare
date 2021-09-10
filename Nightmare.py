@@ -12,6 +12,7 @@ from nightmare.core.controllers.ap import ap_main
 from nightmare.core.controllers.hash import hash_main
 from nightmare.core.controllers.network import net_main
 current_dir = os.getcwd()
+sys.path.append(os.getcwd())
 
 # NightMare vars
 #colour = "green"
@@ -74,13 +75,13 @@ def intro():
     time.sleep(0.1)
     termcolor.cprint(date_release, "red")
     time.sleep(0.1)
-    print('')
+    # print('')
 
 #detects if you are on linux and what distro you are on
 def os_detect():
     if sys.platform != "linux":
         print("At the moment linux is the only platform that Nightmare can run on")
-        sys.exit
+        sys.exit()
     os_file = osversionfile_dir + "os-release"
     supported_distros = known_arm_compatible_distros + known_compatible_distros
     os_test = open(os_file, "r")
@@ -88,8 +89,8 @@ def os_detect():
         line = line.rstrip()
         if line.startswith('ID='):
             os_name = line.replace('ID=', '')
-    print("Operating System detected: " + os_name)
-    print('')
+    # print("Operating System detected: " + os_name)
+    termcolor.cprint("OS: " + os_name, "yellow")
     print('')
 
 #simple yes no
@@ -128,14 +129,15 @@ def clear_temp():
         for file in tmp_files:
             os.remove(tmpdir + file)
     except:
-        print("No temp files to be removed")
+        # print("No temp files to be removed")
+        pass
 
 def help():
     termcolor.cprint("sys (command) -- executes system commands", colour)
     termcolor.cprint("ap -- puts Nightmare into access point mode", colour)
     termcolor.cprint("netscan -- scans a selected subnet for avaliable hosts", colour)
     termcolor.cprint("clear -- clears the screen", colour)
-    termcolor.cprint("network -- pute Nightmare into network mode", colour)
+    termcolor.cprint("network -- puts Nightmare into network mode", colour)
     # termcolor.cprint("web -- puts Nightmare into web mode", colour)
 
          
@@ -178,7 +180,7 @@ def main():
         package_check()
         cli()
     except KeyboardInterrupt:
-        termcolor.cprint("\nCtrl + C pressed............Quitting", "red")
+        #termcolor.cprint("\nCtrl + C pressed............Quitting", "red")
         clear_temp()
         sys.exit()
 
