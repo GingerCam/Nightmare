@@ -5,4 +5,4 @@ date_release = 10/9/21
 colour = yellow
 promt_colour = green
 [Nightmare]
-intro = True
+intro = False
