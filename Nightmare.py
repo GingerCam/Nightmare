@@ -17,7 +17,7 @@ sys.path.append(os.getcwd())
 # NightMare vars
 #colour = "green"
 #promt_colour="green"
-tmpdir = "/tmp/"
+tmpdir = "/tmp/nightmare"
 osversionfile_dir = "/etc/"
 plugins_dir="plugins/"
 minimum_bash_version_required = "4.2"
@@ -87,25 +87,11 @@ def os_detect():
     os_test = open(os_file, "r")
     for line in os_test:
         line = line.rstrip()
-        if line.startswith('ID='):
-            os_name = line.replace('ID=', '')
+        if line.startswith('NAME='):
+            os_name = line.replace('NAME=', '')
     # print("Operating System detected: " + os_name)
     termcolor.cprint("OS: " + os_name, "yellow")
     print('')
-
-#simple yes no
-def yesno():
-    option = input(termcolor.colored("Y/n: ", colour))
-    if len(option) == 0:
-        answer = "y"
-    elif len(option) == "1":
-        if option == "y" or option == "Y":
-            option = True
-        elif option == "n" or option == "N":
-            option = False
-        else:
-            print("Input must be either Y or N")
-            yesno()
 
 #checks if all requred packages are installed
 def package_check():
